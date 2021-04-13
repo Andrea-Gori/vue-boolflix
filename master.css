@@ -53,8 +53,8 @@ header input {
 
 .card {
   width: calc(100% / 4 - 10px);
-  max-width: 300px;
-  height: 450px;
+  max-width: 400px;
+  min-width: 250px;
   color: #fff;
   border: 1px solid #fff;
   margin: 5px;
@@ -62,10 +62,11 @@ header input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 10px;
 }
 
 .card img {
-  max-height: 250px;
+  max-height: 350px;
 }
 
 .titolo{
@@ -79,9 +80,24 @@ header input {
 }
 
 .back-card {
+  display: none;
+}
+
+.card:hover .back-card{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.card:hover .poster {
+  display: none;
+}
+
+.stelle {
+  margin-left: -4px;
+}
+
+.fa-star {
+  color: #ffd700;
+}

@@ -24,49 +24,55 @@
         <div class="divider"><h2>FILM</h2></div>
         
         <div class="card" v-for="film in films" v-if="film.poster_path != null">
-          <img :src="`https://image.tmdb.org/t/p/w185/${ film.poster_path }`" alt="">
-          <div>
-            
-            <!-- <p class="lingua">{{ film.original_language }}</p> -->
+          <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${ film.poster_path }`" alt="">
+
+          <div class="back-card">
+
             <span>
               <img v-if="film.original_language == 'en'" src="https://www.countryflags.io/us/flat/64.png">
-              <img v-else :src="`https://www.countryflags.io/${ film.original_language }/flat/64.png`">
-          </span>
 
-          </div>
-            
-            <div class="back-card">
-              <p class="titolo">{{ film.title }}</p>
-              <p class="titolo-originale" v-if="film.title != film.original_title "
-              >{{ film.original_title }}</p>
+              <img v-else :src="`https://www.countryflags.io/${ film.original_language }/flat/64.png`">
+            </span>
+
+            <p class="titolo">{{ film.title }}</p>
+
+            <p class="titolo-originale" v-if="film.title != film.original_title "
+            >{{ film.original_title }}</p>
+            <div>
               <span>
                 <i class="fas fa-star" v-for="star in parseInt(film.vote_average / 2) "></i>
+              </span>
+              <span class="stelle">
                 <i class="far fa-star" v-for="star in 5 - parseInt(film.vote_average / 2) "></i>
               </span>
-              
             </div>
+              
+          </div>
           
         </div>
         
         <div class="divider"><h2>SERIE TV</h2></div>
 
         <div class="card" v-for="serie in serieTv" v-if="serie.poster_path != null">
-          <img :src="`https://image.tmdb.org/t/p/w185/${ serie.poster_path }`" alt="">
-          <div>
-            
-            <!-- <p class="lingua">{{ film.original_language }}</p> -->
-            <span>
-              <img v-if="film.original_language == 'en'" src="https://www.countryflags.io/us/flat/64.png">
-              <img v-else :src="`https://www.countryflags.io/${ film.original_language }/flat/64.png`">
-          </span>
-
-          </div>
+          <img class="poster" :src="`https://image.tmdb.org/t/p/w185/${ serie.poster_path }`" alt="">
             
             <div class="back-card">
+              <span>
+                <img v-if="serie.original_language == 'en'" src="https://www.countryflags.io/us/flat/64.png">
+                <img v-else :src="`https://www.countryflags.io/${ serie.original_language }/flat/64.png`">
+              </span>
+
               <p class="titolo">{{ serie.name }}</p>
               <p class="titolo-originale" v-if="serie.name != serie.original_name "
               >{{ serie.original_name }}</p>
-              <p class="valutazione">{{ serie.vote_average }}</p>
+              <div>
+                <span>
+                  <i class="fas fa-star" v-for="star in parseInt(serie.vote_average / 2) "></i>
+                </span>
+                <span class="stelle">
+                  <i class="far fa-star" v-for="star in 5 - parseInt(serie.vote_average / 2) "></i>
+                </span>
+              </div>
             </div>
           
         </div>
